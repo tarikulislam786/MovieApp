@@ -13,6 +13,7 @@ export class MoviesController {
             return await this.moviesService.findAll();
         }
 
+        @UseGuards(JwtGuard) 
         @Post()
         async create(@Body() movieDto: MovieDto) {
             return await this.moviesService.create(movieDto);
